@@ -16,3 +16,5 @@ HER/rcnn/logs
 notes*
 test_results/
 trained_models
+*_old
+*plot_multi*

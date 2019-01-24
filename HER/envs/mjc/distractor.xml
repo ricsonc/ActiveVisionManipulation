@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mujoco>
+	<compiler coordinate="local" angle="radian" meshdir="meshes/" texturedir="texture/" strippath="false" />
+	<option gravity="0 0 -9.8" timestep="0.002" cone="elliptic"/>
+
+
+    <visual>
+      <map znear="0.01"/>
+    </visual>
+    
+
+	<include file="shared.xml"></include>
+
+	<worldbody>
+
+		<include file="robot_without_gripper.xml"></include>
+
+		<body name="distractor1" pos="0.0 0.0 0.0">
+            <site name="distractor1" type="box" pos="0.0 0.0 0" rgba="0 1.0 0 1" size="0.02 0.040 0.1"/>
+            <joint name="distractor1" type="free" limited="false" damping="1"/>
+            <inertial pos="0 0 0" mass="0.0000001" diaginertia="1 1 1"/>
+        </body>
+
+		<body name="distractor2" pos="0.0 0.0 0.0">
+            <site name="distractor2" type="cylinder" pos="0.0 0.0 0" rgba="0 0 1.0 1" size="0.04 0.099"/>
+            <joint name="distractor2" type="free" limited="false" damping="1"/>
+            <inertial pos="0 0 0" mass="0.0000001" diaginertia="1 1 1"/>
+        </body>
+
+		<body name="distractor3" pos="0.0 0.0 0.0">
+            <site name="distractor3" type="ellipsoid" pos="0.0 0.0 0" rgba="1.0 0 0 1" size="0.03 0.05 0.1"/>
+            <joint name="distractor3" type="free" limited="false" damping="1"/>
+            <inertial pos="0 0 0" mass="0.0000001" diaginertia="1 1 1"/>
+        </body>
+        
+		<!-- object -->
+		<body name="box" pos="0.59 0.27 0.0">
+            <geom name="box" type="box"  rgba="1.0 0.0 0.0 1" size="0.03 0.03 0.03" contype="3" conaffinity="3" friction="1 0.005 0.0001" />
+            <site name="box" pos="0.0 0.0 0" rgba="0 0 1 1" size="0.02 0.02 0.025"/>
+            <joint name="box" type="free" limited="false" damping="1"/>
+            <inertial pos="0 0 0" mass="0.1" diaginertia="1 1 1"/>
+        </body>
+
+		<body name="target" pos="0.0 0.0 0.0">
+            <site name="target" pos="0.0 0.0 0" rgba="0 0 1 1" size="0.02 0.02 0.02"/>
+            <joint name="target" type="free" limited="false" damping="1"/>
+            <inertial pos="0 0 0" mass="0.00001"  diaginertia="1 1 1"/>
+        </body>
+
+
+	</worldbody>
+
+	<actuator></actuator>
+</mujoco>

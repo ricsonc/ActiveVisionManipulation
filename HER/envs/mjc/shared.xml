@@ -1,0 +1,58 @@
+<mujoco>
+	
+	<asset>
+		<mesh name="base_link" file="torso/base_link.STL"/>
+		<mesh name="base_link_collision" file="torso/base_link_collision.STL"/>
+		<mesh name="PEDESTAL" file="base/PEDESTAL.STL"/>
+		<mesh name="pedestal_link_collision" file="base/pedestal_link_collision.STL"/>
+		<mesh name="H0" file="head/H0.STL"/>
+		<mesh name="H1" file="head/H1.STL"/>
+		<mesh name="S0" file="upper_shoulder/S0.STL"/>
+		<mesh name="S1" file="lower_shoulder/S1.STL"/>
+		<mesh name="E0" file="upper_elbow/E0.STL"/>
+		<mesh name="E1" file="lower_elbow/E1.STL"/>
+		<mesh name="W0" file="upper_forearm/W0.STL"/>
+		<mesh name="W1" file="lower_forearm/W1.STL"/>
+		<mesh name="W2" file="wrist/W2.STL"/>
+		<mesh name="half_round_tip" file="electric_gripper/fingers/half_round_tip.STL" />
+		<mesh name="electric_gripper_base" file="electric_gripper/electric_gripper_base.STL" />
+		<mesh name="extended_narrow" file="electric_gripper/fingers/extended_narrow.STL"/>
+		<mesh name="paddle_tip" file="electric_gripper/fingers/paddle_tip.STL"/>        
+
+		<!-- add texture files -->
+		<texture builtin="gradient" height="100" rgb1="1 1 1" rgb2="0 0 0" type="skybox" width="100"/>
+		<texture builtin="flat" height="1278" mark="cross" markrgb="1 1 1" name="texgeom" random="0.01" rgb1="0.8 0.6 0.4" rgb2="0.8 0.6 0.4" type="cube" width="127"/>
+		<texture builtin="checker" height="100" name="texplane" rgb1="0 0 0" rgb2="0.8 0.8 0.8" type="2d" width="100"/>
+		<material name="MatPlane" reflectance="0.5" shininess="1" specular="1" texrepeat="60 60" texture="texplane"/>
+		<material name="geom" texture="texgeom" texuniform="true"/>
+
+		<texture name="wooden" file="wooden.png" builtin="none" type="2d"/>
+		<texture name="checker" file="checker.png" builtin="none" type="2d"/>
+		<material name="tabletop1" texture="wooden" texuniform="true"/>
+		<material name="tabletop2" texture="checker" texuniform="true"/>
+	</asset>
+
+	<equality>
+		<weld body1="robot0:mocap" body2="left_gripper_base" solimp="0.9 0.95 0.001" solref="0.02 1"></weld>
+	</equality>
+
+	 <default>
+		<geom margin="0.001" solimp="0.99 0.99 0.01" solref="0.01 1"/>
+		<joint limited="true" damping="20" frictionloss="0" stiffness="0"/>
+		<default class="viz">
+			<geom contype="0" conaffinity="0" group="1" type="mesh"/>
+		</default>
+				
+	 </default>
+
+
+	 <contact>       
+		<exclude body1="left_upper_shoulder" body2="torso"/>
+		<exclude body1="left_upper_shoulder" body2="left_upper_elbow"/>
+		<exclude body1="left_lower_elbow" body2="left_upper_elbow"/>
+		<exclude body1="collision_head_link_1" body2="torso"/>
+		<exclude body1="collision_head_link_2" body2="torso"/>
+		<exclude body1="l_gripper_r_finger" body2="l_gripper_l_finger"/>
+	</contact>
+
+</mujoco>

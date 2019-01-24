@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mujoco>
+	<compiler coordinate="local" angle="radian" meshdir="meshes/" texturedir="texture/" strippath="false" />
+	<option gravity="0 0 -9.8" timestep="0.002" cone="elliptic"/>
+
+	<include file="shared.xml"></include>
+
+	<worldbody>
+
+		<include file="robot.xml"></include>
+		
+		<!-- object -->
+		<body name="box" pos="0.59 0.27 0.05">
+            <geom name="box" type="box"  rgba="1.0 0.0 0.0 1" size="0.03 0.03 0.03" contype="3" conaffinity="3" friction="1 0.005 0.0001" mass="1"/>
+            <site name="box" pos="0.0 0.0 0" rgba="0 0 1 1" size="0.02 0.02 0.025"/>
+            <joint name="box" type="free" limited="false" damping="1"/>
+        </body>
+		
+		<body name="target" pos="0.0 0.0 0.0">
+            <site name="target" pos="0.0 0.0 0" rgba="1 0 0 1" size="0.02 0.02 0.02"/>
+            <joint name="target" type="free" limited="false" damping="1"/>
+            <inertial pos="0 0 0" mass="0.000001" diaginertia="1 1 1"/>
+        </body>
+
+
+	</worldbody>
+
+	<actuator>
+		<position joint="l_gripper_l_finger_joint" ctrlrange="0 0.04" ctrllimited="true" kp="10000"/>
+        <position joint="l_gripper_r_finger_joint" ctrlrange="-0.04 0" ctrllimited="true" kp="10000"/>
+	</actuator>
+</mujoco>
