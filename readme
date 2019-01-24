@@ -1,0 +1,14 @@
+Instructions on how to use this repository:
+
+Setup:
+1. install mujoco 150
+2. install the requirements from the "requirements" file
+3. download the weights for the matterport RCNN at https://www.dropbox.com/s/wv49pvnplxu900v/mask_rcnn_mujoco_0009.h5?dl=0
+4. move them into the directory HER/rcnn/logs/mujoco20181222T1549/
+
+Viewing results:
+1. view cam.mp4 and vis.mp4 of each directory inside the saved_weights directory, which shows the view of the camera from each trained policy
+
+Running trained models:
+1. go to the scripts/ directory
+2. comment out the appropriate block of code in results.sh and run it
