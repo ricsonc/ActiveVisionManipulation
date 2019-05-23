@@ -18,3 +18,4 @@ test_results/
 trained_models
 *_old
 *plot_multi*
+!HER/envs/mjc/texture/*
