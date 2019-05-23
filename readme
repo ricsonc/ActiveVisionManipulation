@@ -2,7 +2,7 @@ Instructions on how to use this repository:
 
 Setup:
 1. install mujoco 150
-2. install the requirements from the "requirements" file
+2. install the requirements from the "requirements" file in scripts/
 3. download the weights for the matterport RCNN at https://www.dropbox.com/s/wv49pvnplxu900v/mask_rcnn_mujoco_0009.h5?dl=0
 4. move them into the directory HER/rcnn/logs/mujoco20181222T1549/
 
